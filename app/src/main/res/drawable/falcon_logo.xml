@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="128dp"
+    android:height="128dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- 1. Deep Space Rounded Squircle Base -->
+    <path
+        android:pathData="M112,8 L400,8 A104,104 0 0,1 504,112 L504,400 A104,104 0 0,1 400,504 L112,504 A104,104 0 0,1 8,400 L8,112 A104,104 0 0,1 112,8 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="64"
+                android:startY="32"
+                android:endX="448"
+                android:endY="480"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF090D24" />
+                <item android:offset="0.5" android:color="#FF131842" />
+                <item android:offset="1.0" android:color="#FF1E1654" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 2. Outer Luminous Crest Border -->
+    <path
+        android:strokeWidth="6"
+        android:pathData="M112,11 L400,11 A101,101 0 0,1 501,112 L501,400 A101,101 0 0,1 400,501 L112,501 A101,101 0 0,1 11,400 L11,112 A101,101 0 0,1 112,11 Z">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="512"
+                android:endY="512"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF00F5D4" />
+                <item android:offset="0.5" android:color="#FF7C4DFF" />
+                <item android:offset="1.0" android:color="#FFFFD54F" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 3. Inner Hexagonal Shield Frame -->
+    <path
+        android:fillColor="#1400F5D4"
+        android:strokeWidth="3.5"
+        android:pathData="M256,42 L436,136 L436,336 L256,468 L76,336 L76,136 Z">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:startX="76"
+                android:startY="42"
+                android:endX="436"
+                android:endY="468"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#9900F5D4" />
+                <item android:offset="0.5" android:color="#667C4DFF" />
+                <item android:offset="1.0" android:color="#99FFD54F" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 4. Ambient Nebula Glow Halo -->
+    <path
+        android:fillColor="#1A00F5D4"
+        android:pathData="M106,246 a150,150 0 1,0 300,0 a150,150 0 1,0 -300,0" />
+    <path
+        android:fillColor="#247C4DFF"
+        android:pathData="M156,246 a100,100 0 1,0 200,0 a100,100 0 1,0 -200,0" />
+
+    <!-- 5. Top Primary Falcon Wing Blades (Swept High & Sharp) -->
+    <!-- Left Primary Wing -->
+    <path
+        android:pathData="M256,238 L62,126 L132,120 L256,198 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="62"
+                android:startY="120"
+                android:endX="256"
+                android:endY="238"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF00F5D4" />
+                <item android:offset="1.0" android:color="#FF0284C7" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Right Primary Wing -->
+    <path
+        android:pathData="M256,238 L450,126 L380,120 L256,198 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="450"
+                android:startY="120"
+                android:endX="256"
+                android:endY="238"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF00F5D4" />
+                <item android:offset="1.0" android:color="#FF0284C7" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 6. Secondary Mid-Wing Feathers (Royal Violet to Indigo) -->
+    <!-- Left Mid Wing -->
+    <path
+        android:pathData="M256,278 L84,178 L148,172 L256,238 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="84"
+                android:startY="172"
+                android:endX="256"
+                android:endY="278"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFA855F7" />
+                <item android:offset="1.0" android:color="#FF4F46E5" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Right Mid Wing -->
+    <path
+        android:pathData="M256,278 L428,178 L364,172 L256,238 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="428"
+                android:startY="172"
+                android:endX="256"
+                android:endY="278"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFA855F7" />
+                <item android:offset="1.0" android:color="#FF4F46E5" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 7. Golden Solar Inner Wing Blades -->
+    <!-- Left Golden Wing -->
+    <path
+        android:pathData="M256,316 L116,232 L172,226 L256,278 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="116"
+                android:startY="226"
+                android:endX="256"
+                android:endY="316"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFFDE047" />
+                <item android:offset="1.0" android:color="#FFF59E0B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Right Golden Wing -->
+    <path
+        android:pathData="M256,316 L396,232 L340,226 L256,278 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="396"
+                android:startY="226"
+                android:endX="256"
+                android:endY="316"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFFDE047" />
+                <item android:offset="1.0" android:color="#FFF59E0B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 8. Sculpted Falcon Tail & Torso Crest -->
+    <path
+        android:pathData="M256,210 L306,294 L256,434 L206,294 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="256"
+                android:startY="210"
+                android:endX="256"
+                android:endY="434"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF38BDF8" />
+                <item android:offset="0.55" android:color="#FF1E1B4B" />
+                <item android:offset="1.0" android:color="#FF00F5D4" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Inner Tail Chevron -->
+    <path
+        android:fillColor="#FFFDE047"
+        android:pathData="M256,348 L284,312 L256,412 L228,312 Z" />
+
+    <!-- 9. Iconic Falcon Head, Crown & Raptor Beak -->
+    <!-- Falcon Crown -->
+    <path
+        android:pathData="M256,82 L298,136 L282,198 L256,218 L230,198 L214,136 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="256"
+                android:startY="82"
+                android:endX="256"
+                android:endY="218"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFFFFFFF" />
+                <item android:offset="0.45" android:color="#FF38BDF8" />
+                <item android:offset="1.0" android:color="#FF0284C7" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Sharp Golden Beak Crest -->
+    <path
+        android:pathData="M256,144 L276,174 L256,216 L236,174 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="256"
+                android:startY="144"
+                android:endX="256"
+                android:endY="216"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFFDE047" />
+                <item android:offset="1.0" android:color="#FFD97706" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Fierce Glowing Cyber Eyes -->
+    <path
+        android:fillColor="#FF090D24"
+        android:pathData="M224,142 L246,154 L230,160 Z" />
+    <path
+        android:fillColor="#FF00F5D4"
+        android:pathData="M227,145 L243,153 L231,157 Z" />
+    <path
+        android:fillColor="#FF090D24"
+        android:pathData="M288,142 L266,154 L282,160 Z" />
+    <path
+        android:fillColor="#FF00F5D4"
+        android:pathData="M285,145 L269,153 L281,157 Z" />
+
+    <!-- 10. Subtle Code Brackets < > Integrated on Outer Shield -->
+    <path
+        android:strokeColor="#CC00F5D4"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M138,342 L110,368 L138,394" />
+    <path
+        android:strokeColor="#CC00F5D4"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M374,342 L402,368 L374,394" />
+
+    <!-- 11. Central AI Core Diamond Spark -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M256,246 L272,272 L256,298 L240,272 Z" />
+    <path
+        android:fillColor="#FF00F5D4"
+        android:pathData="M256,254 L266,272 L256,290 L246,272 Z" />
+</vector>

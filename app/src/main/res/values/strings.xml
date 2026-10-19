@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Falcon AI</string>
+    <string name="tagline">Multilingual AI Learning Companion</string>
+    <string name="sign_in_google">Continue with Gmail Only</string>
+    <string name="guest_mode_button_label">Guest Mode — Instant Access</string>
+    <string name="nav_dashboard">Home</string>
+    <string name="nav_homework">Homework</string>
+    <string name="nav_quiz">Daily Quiz</string>
+    <string name="nav_progress">Settings</string>
+    <string name="upload_homework">Upload Homework Photo</string>
+    <string name="ask_ai_tutor">Explain Step-by-Step</string>
+    <string name="generate_daily_quiz">Launch Daily Quiz</string>
+    <string name="recover_streak_button">Recover Streak with Coins</string>
+    <string name="buy_shield_button">Buy Streak Shield (75 Coins)</string>
+</resources>

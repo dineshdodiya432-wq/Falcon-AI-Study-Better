@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <group
+        android:scaleX="0.64"
+        android:scaleY="0.64"
+        android:translateX="92.16"
+        android:translateY="92.16">
+
+        <!-- Inner Hexagonal Shield Frame -->
+        <path
+            android:fillColor="#1A00F5D4"
+            android:strokeWidth="5"
+            android:pathData="M256,42 L436,136 L436,336 L256,468 L76,336 L76,136 Z">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:startX="76"
+                    android:startY="42"
+                    android:endX="436"
+                    android:endY="468"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF00F5D4" />
+                    <item android:offset="0.5" android:color="#FF7C4DFF" />
+                    <item android:offset="1.0" android:color="#FFFFD54F" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Left Primary Wing -->
+        <path android:pathData="M256,238 L62,126 L132,120 L256,198 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="62"
+                    android:startY="120"
+                    android:endX="256"
+                    android:endY="238"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF00F5D4" />
+                    <item android:offset="1.0" android:color="#FF0284C7" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Right Primary Wing -->
+        <path android:pathData="M256,238 L450,126 L380,120 L256,198 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="450"
+                    android:startY="120"
+                    android:endX="256"
+                    android:endY="238"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF00F5D4" />
+                    <item android:offset="1.0" android:color="#FF0284C7" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Left Mid Wing -->
+        <path android:pathData="M256,278 L84,178 L148,172 L256,238 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="84"
+                    android:startY="172"
+                    android:endX="256"
+                    android:endY="278"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFA855F7" />
+                    <item android:offset="1.0" android:color="#FF4F46E5" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Right Mid Wing -->
+        <path android:pathData="M256,278 L428,178 L364,172 L256,238 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="428"
+                    android:startY="172"
+                    android:endX="256"
+                    android:endY="278"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFA855F7" />
+                    <item android:offset="1.0" android:color="#FF4F46E5" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Left Golden Wing -->
+        <path android:pathData="M256,316 L116,232 L172,226 L256,278 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="116"
+                    android:startY="226"
+                    android:endX="256"
+                    android:endY="316"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFFDE047" />
+                    <item android:offset="1.0" android:color="#FFF59E0B" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Right Golden Wing -->
+        <path android:pathData="M256,316 L396,232 L340,226 L256,278 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="396"
+                    android:startY="226"
+                    android:endX="256"
+                    android:endY="316"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFFDE047" />
+                    <item android:offset="1.0" android:color="#FFF59E0B" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Sculpted Falcon Tail & Torso Crest -->
+        <path android:pathData="M256,210 L306,294 L256,434 L206,294 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="256"
+                    android:startY="210"
+                    android:endX="256"
+                    android:endY="434"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF38BDF8" />
+                    <item android:offset="0.55" android:color="#FF1E1B4B" />
+                    <item android:offset="1.0" android:color="#FF00F5D4" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <path
+            android:fillColor="#FFFDE047"
+            android:pathData="M256,348 L284,312 L256,412 L228,312 Z" />
+
+        <!-- Falcon Crown -->
+        <path android:pathData="M256,82 L298,136 L282,198 L256,218 L230,198 L214,136 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="256"
+                    android:startY="82"
+                    android:endX="256"
+                    android:endY="218"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFFFFFFF" />
+                    <item android:offset="0.45" android:color="#FF38BDF8" />
+                    <item android:offset="1.0" android:color="#FF0284C7" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Sharp Golden Beak Crest -->
+        <path android:pathData="M256,144 L276,174 L256,216 L236,174 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="256"
+                    android:startY="144"
+                    android:endX="256"
+                    android:endY="216"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FFFDE047" />
+                    <item android:offset="1.0" android:color="#FFD97706" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Central AI Core Diamond Spark -->
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M256,246 L272,272 L256,298 L240,272 Z" />
+        <path
+            android:fillColor="#FF00F5D4"
+            android:pathData="M256,254 L266,272 L256,290 L246,272 Z" />
+    </group>
+</vector>

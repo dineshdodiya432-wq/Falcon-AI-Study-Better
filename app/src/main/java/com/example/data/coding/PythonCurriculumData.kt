@@ -1,0 +1,981 @@
+package com.example.data.coding
+
+object PythonCurriculumData {
+
+    val lessons: List<CodingLesson> = listOf(
+        // MODULE 1: FOUNDATIONS & CORE SYNTAX (Lessons 1 - 6)
+        CodingLesson(
+            id = "py_01",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 1,
+            title = "1. What Programming Is & How Python Works",
+            difficulty = "Beginner",
+            topicTag = "Foundations",
+            conceptExplanation = "Programming is the art of writing clear, step-by-step instructions that tell a computer how to solve a problem. Think of a computer like an ultra-fast chef who follows your recipe literally: if your instructions are clear, it prepares the dish in milliseconds. Python is a high-level programming language designed to read almost like plain English.",
+            whyItExists = "Computers only natively understand binary machine code (0s and 1s). Python bridges the gap between human thought and machine execution so you can build AI models, websites, games, and automation scripts without managing low-level hardware details.",
+            simplerExplanation = "Imagine giving directions to a friend who has never visited your neighborhood. Programming is writing those directions down one line at a time, and Python is the friendly language you use so both you and the computer understand every step.",
+            syntaxGuide = "# Lines starting with # are comments for humans\nprint(\"Instruction 1\")\nprint(\"Instruction 2\")",
+            workingExampleCode = "# Our very first Python program\nprint(\"Welcome to Falcon AI Coding!\")\nprint(\"Python executes instructions from top to bottom.\")",
+            lineByLineWalkthrough = listOf(
+                "Line 1: A comment starting with '#' — Python ignores this line; it is a note for humans.",
+                "Line 2: Calls the built-in print() function to display 'Welcome to Falcon AI Coding!' on the screen.",
+                "Line 3: Runs second in sequence, printing the next sentence right below the first."
+            ),
+            expectedOutput = "Welcome to Falcon AI Coding!\nPython executes instructions from top to bottom.",
+            commonMistakes = listOf(
+                "Capitalizing Print() instead of print() — Python is case-sensitive.",
+                "Forgetting quotation marks around text, which makes Python think your words are variable names."
+            ),
+            realWorldExample = "Every time an app greets you by name on launch or logs diagnostic steps on a server, it executes sequential instructions just like this.",
+            exercisePrompt = "Write a Python program that displays exactly: Hello World",
+            exerciseStarterCode = "# Write your instruction below to display Hello World\n",
+            exerciseSolutionCode = "print(\"Hello World\")",
+            exerciseExpectedOutputContains = listOf("Hello World"),
+            exerciseHint = "Use print(\"Hello World\") with lowercase 'p' and double quotes around Hello World.",
+            quizQuestion = "In what order does Python execute standard lines of code in a script?",
+            quizOptions = listOf(
+                "From top to bottom, one line at a time",
+                "From bottom to top",
+                "Randomly depending on line length",
+                "All lines simultaneously without order"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Python reads your file sequentially from the first line at the top down to the last line at the bottom, unless control flow statements redirect it.",
+            quizHint = "Think about how you read steps in a cooking recipe."
+        ),
+        CodingLesson(
+            id = "py_02",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 2,
+            title = "2. Accessing & Using the Python Interpreter",
+            difficulty = "Beginner",
+            topicTag = "Interpreter",
+            conceptExplanation = "A Python interpreter is the program that reads your Python source code (.py), translates it into bytecode, and executes it immediately in a virtual machine. You can run Python in two ways: Interactive REPL mode (one command at a time) or Script mode (running a saved .py file like in our Falcon AI Playground).",
+            whyItExists = "Unlike compiled languages that require a separate manual build step before running, the Python interpreter lets you test ideas, inspect math expressions, and run scripts instantaneously.",
+            simplerExplanation = "Think of the Python interpreter as a live simultaneous translator at the United Nations: as soon as you speak a sentence in Python, the translator immediately tells the computer hardware what to do.",
+            syntaxGuide = "python3 main.py  # Runs a script file from terminal\nprint(10 + 25)   # Evaluates expression and outputs 35",
+            workingExampleCode = "# The interpreter evaluates math and text right away\nprint(\"Interpreter Status: Online\")\nprint(2026 - 2000)\nprint(12 * 5)",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Displays a status message confirming the interpreter is running.",
+                "Line 3: Evaluates the subtraction 2026 - 2000 (= 26) and prints the result.",
+                "Line 4: Multiplies 12 by 5 (= 60) and prints the result."
+            ),
+            expectedOutput = "Interpreter Status: Online\n26\n60",
+            commonMistakes = listOf(
+                "Putting quotes around math like print(\"12 * 5\"), which prints the literal text '12 * 5' instead of calculating 60."
+            ),
+            realWorldExample = "Data scientists use interactive Python interpreters every day to calculate financial metrics and test equations before deploying them.",
+            exercisePrompt = "Use the Python interpreter to calculate and print the result of 150 + 50.",
+            exerciseStarterCode = "# Print the sum of 150 and 50 (without quotes around the numbers)\n",
+            exerciseSolutionCode = "print(150 + 50)",
+            exerciseExpectedOutputContains = listOf("200"),
+            exerciseHint = "Pass 150 + 50 directly inside print(...) without quotes.",
+            quizQuestion = "What happens if you run print(\"5 + 5\") vs print(5 + 5)?",
+            quizOptions = listOf(
+                "print(\"5 + 5\") outputs the text 5 + 5, while print(5 + 5) calculates and outputs 10",
+                "Both output 10",
+                "Both output 5 + 5",
+                "Python throws a syntax error on both"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Quotation marks tell the interpreter to treat characters as literal text (a string) rather than a mathematical expression to evaluate.",
+            quizHint = "Quotes mean 'treat this literally as text'."
+        ),
+        CodingLesson(
+            id = "py_03",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 3,
+            title = "3. print(), Comments & Basic Syntax",
+            difficulty = "Beginner",
+            topicTag = "Syntax",
+            conceptExplanation = "The print() function sends data to the output console. You can pass multiple items separated by commas, and Python automatically places a space between them. Comments (#) let you document why your code works without affecting execution.",
+            whyItExists = "Clear output lets your program communicate with users, and well-written comments help your future self and teammates understand your reasoning.",
+            simplerExplanation = "print() is your program's loudspeaker, while # comments are sticky notes stuck to your code that only you can see.",
+            syntaxGuide = "print(\"Score:\", 100)  # Prints: Score: 100\n# Everything after # on a line is ignored by Python",
+            workingExampleCode = "# Demonstrating multi-argument print and comments\nprint(\"Player:\", \"Aria\", \"Level:\", 7)\nprint(\"Status:\", \"Ready\") # Inline comment",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Full-line comment explaining the script.",
+                "Line 2: Passes 4 items separated by commas; print() joins them with spaces.",
+                "Line 3: Prints 'Status: Ready' and ignores the inline comment at the end."
+            ),
+            expectedOutput = "Player: Aria Level: 7\nStatus: Ready",
+            commonMistakes = listOf(
+                "Forgetting a comma between multiple items inside print(\"Score\" 100), which causes a SyntaxError.",
+                "Using // for comments (used in C++/JS) instead of # in Python."
+            ),
+            realWorldExample = "Logging events in backend services, such as printing timestamped status updates alongside numeric metrics.",
+            exercisePrompt = "Use a single print() statement with comma-separated values to print: Coins: 250",
+            exerciseStarterCode = "# Print Coins: and 250 in one print statement\n",
+            exerciseSolutionCode = "print(\"Coins:\", 250)",
+            exerciseExpectedOutputContains = listOf("Coins: 250"),
+            exerciseHint = "Write print(\"Coins:\", 250)",
+            quizQuestion = "Which symbol starts a single-line comment in Python?",
+            quizOptions = listOf("#", "//", "/* */", "--"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "In Python, the hash symbol (#) marks a comment. '//' is integer floor division in Python!",
+            quizHint = "Look at the first character of line 1 in our example code."
+        ),
+        CodingLesson(
+            id = "py_04",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 4,
+            title = "4. Variables & Naming Conventions",
+            difficulty = "Beginner",
+            topicTag = "Variables",
+            conceptExplanation = "A variable is a named label attached to a value stored in memory. In Python, you create a variable using the assignment operator (=) and follow snake_case naming (lowercase words joined by underscores, like user_score).",
+            whyItExists = "Without variables, you would have to re-type values everywhere and could never remember user names, game scores, or calculation results.",
+            simplerExplanation = "Think of a variable as a labeled storage box. You write 'player_score' on the box label and put the number 42 inside. Whenever you ask for 'player_score', Python hands you 42.",
+            syntaxGuide = "student_name = \"Maya\"\ncurrent_streak = 5\nprint(student_name, \"has a streak of\", current_streak)",
+            workingExampleCode = "course_name = \"Python Mastery\"\ncompleted_lessons = 4\ncompleted_lessons = completed_lessons + 1\nprint(course_name)\nprint(\"Completed:\", completed_lessons)",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Creates variable 'course_name' storing the text 'Python Mastery'.",
+                "Line 2: Creates variable 'completed_lessons' storing the integer 4.",
+                "Line 3: Reads current value (4), adds 1 (5), and updates 'completed_lessons' to 5.",
+                "Lines 4-5: Prints the stored values."
+            ),
+            expectedOutput = "Python Mastery\nCompleted: 5",
+            commonMistakes = listOf(
+                "Starting a variable name with a number (e.g., 1st_place = \"Sam\") — variable names must start with a letter or underscore.",
+                "Using spaces or hyphens in variable names (use user_name, not user-name)."
+            ),
+            realWorldExample = "Storing a shopper's cart total and updating it whenever an item is added.",
+            exercisePrompt = "Create a variable named speed set to 120, then print it.",
+            exerciseStarterCode = "# Create variable speed = 120 and print it\n",
+            exerciseSolutionCode = "speed = 120\nprint(speed)",
+            exerciseExpectedOutputContains = listOf("120"),
+            exerciseHint = "Set speed = 120 on line 1, then print(speed) on line 2.",
+            quizQuestion = "Which of the following is a valid and idiomatic Python variable name?",
+            quizOptions = listOf("total_score", "2nd_player", "total-score", "user name"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Python variable names cannot start with digits or contain hyphens/spaces. snake_case (total_score) is the official PEP 8 convention.",
+            quizHint = "Look for lowercase letters connected by an underscore."
+        ),
+        CodingLesson(
+            id = "py_05",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 5,
+            title = "5. Data Types & Type Conversion",
+            difficulty = "Beginner",
+            topicTag = "Data Types",
+            conceptExplanation = "Every value in Python has a data type: int (whole numbers like 42), float (decimal numbers like 3.14), str (text in quotes like \"Falcon\"), and bool (True or False). You can convert between types using int(), float(), str(), and check types with type().",
+            whyItExists = "Computers store and process text differently from numbers. Knowing types prevents bugs like trying to add the text \"50\" to the number 10.",
+            simplerExplanation = "Data types are like ingredients in a kitchen: water is a liquid (float), sugar cubes are whole items (int), and recipe labels are text (str). Sometimes you melt ice into water — that is type conversion!",
+            syntaxGuide = "age_text = \"16\"\nage_number = int(age_text)  # Converts string \"16\" to integer 16\nprint(age_number + 4)       # Outputs 20",
+            workingExampleCode = "price_str = \"49\"\nquantity = 3\ntotal = int(price_str) * quantity\nis_available = True\nprint(\"Total Cost:\", total)\nprint(\"In Stock:\", is_available)",
+            lineByLineWalkthrough = listOf(
+                "Line 1: 'price_str' holds the string \"49\" (text).",
+                "Line 3: int(price_str) converts \"49\" into the number 49, then multiplies by 3 to get 147.",
+                "Line 4: 'is_available' holds a boolean True.",
+                "Lines 5-6: Prints the calculated total and boolean status."
+            ),
+            expectedOutput = "Total Cost: 147\nIn Stock: True",
+            commonMistakes = listOf(
+                "Writing true or false in lowercase — in Python booleans must be capitalized: True and False.",
+                "Calling int(\"3.14\") directly on a decimal string — convert with float(\"3.14\") first."
+            ),
+            realWorldExample = "Form inputs from websites or files always arrive as strings and must be converted with int() or float() before calculating tax or totals.",
+            exercisePrompt = "Convert the string num_text = \"85\" into an integer, add 15 to it, and print the result.",
+            exerciseStarterCode = "num_text = \"85\"\n# Convert num_text to int, add 15, and print\n",
+            exerciseSolutionCode = "num_text = \"85\"\nresult = int(num_text) + 15\nprint(result)",
+            exerciseExpectedOutputContains = listOf("100"),
+            exerciseHint = "Use print(int(num_text) + 15)",
+            quizQuestion = "What is the data type of the value 98.6 in Python?",
+            quizOptions = listOf("float", "int", "str", "bool"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Numbers with a decimal point are floating-point numbers, represented by the 'float' type in Python.",
+            quizHint = "It has a decimal point."
+        ),
+        CodingLesson(
+            id = "py_06",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 1,
+            moduleTitle = "Module 1: Python Foundations & Syntax",
+            lessonNumber = 6,
+            title = "6. Input and Output with input()",
+            difficulty = "Beginner",
+            topicTag = "Input/Output",
+            conceptExplanation = "The input() function pauses your program, reads a line of text typed by the user (from Standard Input), and returns it as a string (str). If you need to do math with user input, wrap it with int() or float().",
+            whyItExists = "Programs become interactive when users can supply their own names, numbers, and choices instead of running fixed values every time.",
+            simplerExplanation = "If print() is your program's mouth speaking to the user, input() is your program's ear listening to what the user types back.",
+            syntaxGuide = "name = input()\nprint(\"Hello\", name)\nage = int(input())  # Reads a line and converts it to an integer",
+            workingExampleCode = "user_name = input()\npoints = int(input())\nprint(\"Scholar:\", user_name)\nprint(\"Doubled Points:\", points * 2)",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Reads the first line from Standard Input into 'user_name'.",
+                "Line 2: Reads the second line from Standard Input and converts it to an integer.",
+                "Lines 3-4: Greets the user and prints their doubled points."
+            ),
+            expectedOutput = "Scholar: Alex\nDoubled Points: 100",
+            commonMistakes = listOf(
+                "Forgetting that input() always returns a string (str), so input() * 2 repeats the text twice instead of multiplying numerically!"
+            ),
+            realWorldExample = "Interactive command-line tools, calculators, and competitive programming judges all feed test data via standard input.",
+            exercisePrompt = "Read a name using input() and print: Welcome <name> (Using standard input 'Falcon')",
+            exerciseStarterCode = "name = input()\n# Print Welcome followed by name\n",
+            exerciseSolutionCode = "name = input()\nprint(\"Welcome\", name)",
+            exerciseExpectedOutputContains = listOf("Welcome Falcon"),
+            exerciseRequiredInput = "Falcon",
+            exerciseHint = "Use print(\"Welcome\", name)",
+            quizQuestion = "What data type does input() ALWAYS return before any conversion?",
+            quizOptions = listOf("str (String)", "int (Integer)", "float (Decimal)", "list"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Even if the user types digits like 42, input() returns them as the string \"42\" until you convert it with int() or float().",
+            quizHint = "It returns text characters."
+        ),
+
+        // MODULE 2: CONTROL FLOW & LOGIC (Lessons 7 - 10)
+        CodingLesson(
+            id = "py_07",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 2,
+            moduleTitle = "Module 2: Control Flow & Logic",
+            lessonNumber = 7,
+            title = "7. Operators and Expressions",
+            difficulty = "Beginner",
+            topicTag = "Operators",
+            conceptExplanation = "Python provides arithmetic operators (+, -, *, /, // floor division, % modulo remainder, ** exponent), comparison operators (==, !=, <, >, <=, >=), and logical operators (and, or, not).",
+            whyItExists = "Operators let you compute formulas, check whether a number is even or odd (% 2 == 0), and combine multiple conditions.",
+            simplerExplanation = "Operators are the action verbs of math and logic: '//' divides and drops the remainder, '%' gives only the leftover remainder, and '**' raises a number to a power.",
+            syntaxGuide = "print(17 // 5)  # 3 (floor division)\nprint(17 % 5)   # 2 (remainder)\nprint(2 ** 3)   # 8 (2 to the power of 3)",
+            workingExampleCode = "coins = 25\npack_cost = 7\npacks_bought = coins // pack_cost\nleftover_coins = coins % pack_cost\nprint(\"Packs:\", packs_bought)\nprint(\"Leftover:\", leftover_coins)\nprint(\"Can buy more:\", leftover_coins >= pack_cost)",
+            lineByLineWalkthrough = listOf(
+                "Line 3: 25 // 7 calculates how many full 7-coin packs fit in 25 (= 3).",
+                "Line 4: 25 % 7 calculates the remainder left over (= 4).",
+                "Line 7: Compares 4 >= 7, which evaluates to False."
+            ),
+            expectedOutput = "Packs: 3\nLeftover: 4\nCan buy more: False",
+            commonMistakes = listOf(
+                "Confusing '=' (assignment) with '==' (equality comparison).",
+                "Using '^' for exponents instead of '**' (in Python '^' is bitwise XOR)."
+            ),
+            realWorldExample = "Converting total seconds into minutes (seconds // 60) and remaining seconds (seconds % 60).",
+            exercisePrompt = "Calculate and print 2 raised to the power of 5 using the ** operator.",
+            exerciseStarterCode = "# Print 2 to the power of 5\n",
+            exerciseSolutionCode = "print(2 ** 5)",
+            exerciseExpectedOutputContains = listOf("32"),
+            exerciseHint = "Use print(2 ** 5)",
+            quizQuestion = "What is the output of print(14 % 4) in Python?",
+            quizOptions = listOf("2", "3", "3.5", "56"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "4 goes into 14 three times (4 * 3 = 12) with a remainder of 2. The % operator returns that remainder (2).",
+            quizHint = "What is left over when 14 is divided by 4?"
+        ),
+        CodingLesson(
+            id = "py_08",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 2,
+            moduleTitle = "Module 2: Control Flow & Logic",
+            lessonNumber = 8,
+            title = "8. Conditional Statements: if, elif, else",
+            difficulty = "Beginner",
+            topicTag = "Conditionals",
+            conceptExplanation = "Conditional statements let your program make decisions. Python checks the 'if' condition first; if False, it checks any 'elif' (else-if) conditions in order, and falls back to 'else' if none matched. Indentation (4 spaces) defines which lines belong inside each branch.",
+            whyItExists = "Programs need to react dynamically—like awarding an A grade for scores >= 90, B for >= 80, or prompting retry otherwise.",
+            simplerExplanation = "An if/elif/else statement is a fork in the road: if it is raining, take an umbrella; elif it is sunny, wear sunglasses; else, dress normally.",
+            syntaxGuide = "if score >= 90:\n    print(\"Rank: Gold\")\nelif score >= 75:\n    print(\"Rank: Silver\")\nelse:\n    print(\"Keep practising!\")",
+            workingExampleCode = "score = 84\nif score >= 90:\n    print(\"Grade: A\")\nelif score >= 80:\n    print(\"Grade: B\")\nelse:\n    print(\"Grade: C\")",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Sets score to 84.",
+                "Line 2: Checks score >= 90 (False, so skips line 3).",
+                "Line 4: Checks score >= 80 (True! Runs line 5 and skips the else block)."
+            ),
+            expectedOutput = "Grade: B",
+            commonMistakes = listOf(
+                "Forgetting the colon (:) at the end of if, elif, or else lines.",
+                "Forgetting to indent the code block inside the if statement."
+            ),
+            realWorldExample = "Checking if a user's coin balance is at least 75 before allowing streak recovery.",
+            exercisePrompt = "Given temp = 35, write an if/else statement that prints \"Hot\" if temp > 30, else prints \"Cool\".",
+            exerciseStarterCode = "temp = 35\n# Write your if/else statement below\n",
+            exerciseSolutionCode = "temp = 35\nif temp > 30:\n    print(\"Hot\")\nelse:\n    print(\"Cool\")",
+            exerciseExpectedOutputContains = listOf("Hot"),
+            exerciseHint = "Don't forget the colon after 'if temp > 30:' and 4 spaces before print(\"Hot\").",
+            quizQuestion = "What defines the body of an 'if' block in Python?",
+            quizOptions = listOf(
+                "Consistent indentation (typically 4 spaces) after a colon",
+                "Curly braces { }",
+                "Parentheses ( )",
+                "The keyword 'endif'"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Python uses colons (:) and whitespace indentation rather than curly braces to group code blocks.",
+            quizHint = "Look at the 4 spaces at the start of the line under 'if'."
+        ),
+        CodingLesson(
+            id = "py_09",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 2,
+            moduleTitle = "Module 2: Control Flow & Logic",
+            lessonNumber = 9,
+            title = "9. Loops: for and while",
+            difficulty = "Beginner",
+            topicTag = "Loops",
+            conceptExplanation = "Loops repeat a block of code automatically. A 'for' loop iterates over a sequence or range(start, stop), whereas a 'while' loop repeats as long as a boolean condition stays True.",
+            whyItExists = "Instead of copy-pasting print() 100 times, a 2-line loop handles 10 or 10,000 items effortlessly.",
+            simplerExplanation = "A 'for' loop is like doing exactly 5 laps around a track. A 'while' loop is like running laps while you still have energy left.",
+            syntaxGuide = "for i in range(1, 4):\n    print(i)  # Prints 1, 2, 3 (stop value 4 is excluded)",
+            workingExampleCode = "for step in range(1, 4):\n    print(\"Step\", step)\n\ncountdown = 2\nwhile countdown > 0:\n    print(\"T-minus\", countdown)\n    countdown = countdown - 1",
+            lineByLineWalkthrough = listOf(
+                "Lines 1-2: range(1, 4) produces 1, 2, and 3, printing each step.",
+                "Lines 4-7: Starts countdown at 2, prints it, and subtracts 1 each turn until countdown reaches 0."
+            ),
+            expectedOutput = "Step 1\nStep 2\nStep 3\nT-minus 2\nT-minus 1",
+            commonMistakes = listOf(
+                "Forgetting that range(1, 5) stops BEFORE 5 (it yields 1, 2, 3, 4).",
+                "Forgetting to update the loop variable inside a while loop, creating an infinite loop!"
+            ),
+            realWorldExample = "Iterating through every question in a daily quiz to compute the student's final score.",
+            exercisePrompt = "Use a for loop with range(1, 4) to print the numbers 1, 2, and 3 on separate lines.",
+            exerciseStarterCode = "# Write a for loop using range(1, 4)\n",
+            exerciseSolutionCode = "for n in range(1, 4):\n    print(n)",
+            exerciseExpectedOutputContains = listOf("1", "2", "3"),
+            exerciseHint = "Write: for n in range(1, 4): and on the next indented line: print(n)",
+            quizQuestion = "What numbers does range(3) generate?",
+            quizOptions = listOf("0, 1, 2", "1, 2, 3", "0, 1, 2, 3", "3 only"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "range(n) starts at 0 by default and stops before n, producing 0, 1, 2.",
+            quizHint = "In Python, counting starts at 0 and stops before the end number."
+        ),
+        CodingLesson(
+            id = "py_10",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 2,
+            moduleTitle = "Module 2: Control Flow & Logic",
+            lessonNumber = 10,
+            title = "10. Loop Control: break, continue, and pass",
+            difficulty = "Beginner",
+            topicTag = "Loops",
+            conceptExplanation = "'break' exits a loop immediately, 'continue' skips the rest of the current iteration and jumps to the next turn, and 'pass' is a harmless null placeholder when syntax requires a block.",
+            whyItExists = "When searching for an item in a list of 1,000,000 entries, 'break' lets you stop searching the instant you find it.",
+            simplerExplanation = "'break' is hitting the emergency stop button on a treadmill; 'continue' is skipping one song on a playlist and moving to the next.",
+            syntaxGuide = "for n in range(1, 6):\n    if n == 3:\n        continue  # Skips 3\n    if n == 5:\n        break     # Stops at 5\n    print(n)",
+            workingExampleCode = "for num in range(1, 6):\n    if num == 2:\n        continue\n    if num == 5:\n        break\n    print(\"Checked:\", num)",
+            lineByLineWalkthrough = listOf(
+                "Line 2-3: When num is 2, 'continue' skips printing 2 and moves to 3.",
+                "Line 4-5: When num reaches 5, 'break' terminates the loop completely.",
+                "Line 6: Prints 1, 3, and 4."
+            ),
+            expectedOutput = "Checked: 1\nChecked: 3\nChecked: 4",
+            commonMistakes = listOf(
+                "Confusing 'continue' with 'pass' — 'pass' does nothing and continues executing the lines right below it."
+            ),
+            realWorldExample = "Skipping blank lines in a CSV file with 'continue' and stopping when a footer marker is reached with 'break'.",
+            exercisePrompt = "Loop n in range(1, 10), break when n == 4, and print n before the break check.",
+            exerciseStarterCode = "for n in range(1, 10):\n    if n == 4:\n        break\n    print(n)",
+            exerciseSolutionCode = "for n in range(1, 10):\n    if n == 4:\n        break\n    print(n)",
+            exerciseExpectedOutputContains = listOf("1", "2", "3"),
+            exerciseHint = "Run the starter code to observe how break stops at 4!",
+            quizQuestion = "What does the 'continue' statement do inside a loop?",
+            quizOptions = listOf(
+                "Skips the rest of the current iteration and moves to the next iteration",
+                "Exits the entire loop immediately",
+                "Restarts the program from line 1",
+                "Pauses execution for 1 second"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "'continue' jumps straight to the next cycle of the loop, whereas 'break' exits the loop completely.",
+            quizHint = "Think of skipping one track on a playlist."
+        ),
+
+        // MODULE 3: DATA STRUCTURES & STRINGS (Lessons 11 - 12)
+        CodingLesson(
+            id = "py_11",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 3,
+            moduleTitle = "Module 3: Strings & Collections",
+            lessonNumber = 11,
+            title = "11. Strings and String Methods",
+            difficulty = "Beginner",
+            topicTag = "Strings",
+            conceptExplanation = "Strings are sequences of characters. Python gives strings powerful built-in methods like .upper(), .lower(), .strip(), .replace(old, new), and .split(), plus f-strings (f\"Hello {name}\") for clean formatting.",
+            whyItExists = "Almost all human communication in software—search queries, chat messages, filenames—relies on cleaning, searching, and formatting strings.",
+            simplerExplanation = "A string is like a beaded necklace where each bead is a letter. String methods let you polish all beads to uppercase or swap one bead for another.",
+            syntaxGuide = "msg = \"  falcon ai  \"\nclean = msg.strip().upper()  # \"FALCON AI\"\nprint(f\"Welcome to {clean}!\")",
+            workingExampleCode = "title = \"  python programming  \"\nclean_title = title.strip().upper()\nupdated = clean_title.replace(\"PYTHON\", \"FALCON\")\nprint(clean_title)\nprint(updated)\nprint(\"Length:\", len(clean_title))",
+            lineByLineWalkthrough = listOf(
+                "Line 2: .strip() removes outer spaces and .upper() converts to uppercase.",
+                "Line 3: .replace() swaps 'PYTHON' with 'FALCON'.",
+                "Line 6: len() counts the number of characters in the string."
+            ),
+            expectedOutput = "PYTHON PROGRAMMING\nFALCON PROGRAMMING\nLength: 18",
+            commonMistakes = listOf(
+                "Forgetting that strings are immutable: msg.upper() returns a NEW string and does not modify msg in place unless you reassign msg = msg.upper()."
+            ),
+            realWorldExample = "Normalizing user email addresses with .strip().lower() before checking login credentials.",
+            exercisePrompt = "Create word = \"falcon\", print it in uppercase using .upper().",
+            exerciseStarterCode = "word = \"falcon\"\n# Print word in uppercase\n",
+            exerciseSolutionCode = "word = \"falcon\"\nprint(word.upper())",
+            exerciseExpectedOutputContains = listOf("FALCON"),
+            exerciseHint = "Call print(word.upper())",
+            quizQuestion = "Why does calling text.upper() not change the original variable 'text'?",
+            quizOptions = listOf(
+                "Strings in Python are immutable, so methods return a new string",
+                "upper() only works on numbers",
+                "You must pass True inside upper(True)",
+                "upper() deletes the string"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Strings cannot be mutated in place; string methods always create and return a brand-new string.",
+            quizHint = "Strings are immutable."
+        ),
+        CodingLesson(
+            id = "py_12",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 3,
+            moduleTitle = "Module 3: Strings & Collections",
+            lessonNumber = 12,
+            title = "12. Lists, Tuples, Sets, and Dictionaries",
+            difficulty = "Intermediate",
+            topicTag = "Data Structures",
+            conceptExplanation = "Python has 4 core collection types:\n• List [1, 2, 3]: Ordered, changeable sequence (0-indexed).\n• Tuple (1, 2): Ordered, immutable (unchangeable) sequence.\n• Set {1, 2}: Unordered collection of unique items (no duplicates).\n• Dictionary {\"key\": \"value\"}: Fast key-value lookup table.",
+            whyItExists = "Real apps manage groups of data—lists of lessons, coordinate tuples, sets of unique badge IDs, and dictionaries mapping usernames to profiles.",
+            simplerExplanation = "A List is a numbered shopping list you can edit; a Tuple is a laminated list you cannot change; a Set is a bag that rejects duplicates; a Dictionary is a phonebook matching names to numbers.",
+            syntaxGuide = "scores = [85, 92, 98]\nscores.append(100)\nprofile = {\"name\": \"Leo\", \"grade\": 9}\nprint(scores[0], profile[\"name\"])",
+            workingExampleCode = "languages = [\"Python\", \"JavaScript\", \"C++\"]\nlanguages.append(\"Java\")\nprint(\"First:\", languages[0])\nprint(\"Total:\", len(languages))\n\nstudent = {\"name\": \"Maya\", \"coins\": 180}\nprint(\"Student:\", student[\"name\"], \"Coins:\", student[\"coins\"])",
+            lineByLineWalkthrough = listOf(
+                "Lines 1-2: Creates a list of 3 languages and appends 'Java' to the end.",
+                "Line 3: Accesses index 0 ('Python').",
+                "Lines 6-7: Creates a dictionary and looks up values by their string keys."
+            ),
+            expectedOutput = "First: Python\nTotal: 4\nStudent: Maya Coins: 180",
+            commonMistakes = listOf(
+                "Forgetting that list indexing starts at 0, so the first element is items[0], not items[1]."
+            ),
+            realWorldExample = "Storing a student's unlocked badges in a Set and their profile attributes in a Dictionary.",
+            exercisePrompt = "Create a list nums = [10, 20, 30] and print the first element (index 0) and the list length.",
+            exerciseStarterCode = "nums = [10, 20, 30]\n# Print first element and length\nprint(nums[0], len(nums))",
+            exerciseSolutionCode = "nums = [10, 20, 30]\nprint(nums[0], len(nums))",
+            exerciseExpectedOutputContains = listOf("10 3"),
+            exerciseHint = "Use print(nums[0], len(nums))",
+            quizQuestion = "Which Python collection stores key-value pairs for instant lookup?",
+            quizOptions = listOf("Dictionary (dict)", "List (list)", "Tuple (tuple)", "Set (set)"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Dictionaries ({key: value}) map unique keys to values.",
+            quizHint = "Think of looking up a word's definition by its key."
+        ),
+
+        // MODULE 4: FUNCTIONS, MODULARITY & FILES (Lessons 13 - 17)
+        CodingLesson(
+            id = "py_13",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 4,
+            moduleTitle = "Module 4: Functions, Scope & Error Handling",
+            lessonNumber = 13,
+            title = "13. Functions, Parameters, Arguments & Return Values",
+            difficulty = "Intermediate",
+            topicTag = "Functions",
+            conceptExplanation = "A function is a reusable block of code defined with the 'def' keyword. Parameters are the input variables in the definition, arguments are the actual values passed when calling it, and 'return' sends the computed result back to the caller.",
+            whyItExists = "Functions eliminate duplicate code (DRY principle: Don't Repeat Yourself) and break complex programs into small, testable building blocks.",
+            simplerExplanation = "A function is like a smoothie blender: you drop fruit in the top (arguments), the blades blend it (function body), and it pours out a finished smoothie (return value).",
+            syntaxGuide = "def calculate_area(width, height):\n    return width * height\n\nprint(calculate_area(5, 4))  # 20",
+            workingExampleCode = "def award_bonus(base_coins, streak_days):\n    bonus = streak_days * 10\n    return base_coins + bonus\n\ntotal = award_bonus(100, 5)\nprint(\"Updated Coins:\", total)",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Defines award_bonus accepting two parameters: base_coins and streak_days.",
+                "Lines 2-3: Computes bonus and returns the sum.",
+                "Line 5: Calls award_bonus(100, 5) and stores the returned 150 in 'total'."
+            ),
+            expectedOutput = "Updated Coins: 150",
+            commonMistakes = listOf(
+                "Using print() inside a function instead of return when you need to use the result in further calculations.",
+                "Defining a function with def but forgetting to actually call it!"
+            ),
+            realWorldExample = "Calculating shipping cost or quiz accuracy percentage across multiple screens.",
+            exercisePrompt = "Define a function square(n) that returns n * n, then print(square(6)).",
+            exerciseStarterCode = "def square(n):\n    return n * n\n\nprint(square(6))",
+            exerciseSolutionCode = "def square(n):\n    return n * n\n\nprint(square(6))",
+            exerciseExpectedOutputContains = listOf("36"),
+            exerciseHint = "Return n * n inside square(n) and call print(square(6)).",
+            quizQuestion = "What keyword sends a result back from a function to the code that called it?",
+            quizOptions = listOf("return", "send", "output", "give"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "The 'return' statement exits the function and hands the value back to the caller.",
+            quizHint = "It starts with 'r'."
+        ),
+        CodingLesson(
+            id = "py_14",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 4,
+            moduleTitle = "Module 4: Functions, Scope & Error Handling",
+            lessonNumber = 14,
+            title = "14. Variable Scope and Recursion",
+            difficulty = "Intermediate",
+            topicTag = "Recursion",
+            conceptExplanation = "Scope determines where a variable can be accessed: local variables live only inside the function that created them, while global variables live at the file level. Recursion occurs when a function calls itself on a smaller version of a problem until reaching a 'base case'.",
+            whyItExists = "Local scope prevents functions from accidentally corrupting each other's variables. Recursion elegantly solves tree traversals, factorials, and divide-and-conquer problems.",
+            simplerExplanation = "Recursion is like standing between two mirrors or opening Russian nesting dolls one by one until you reach the tiniest solid doll at the center (the base case).",
+            syntaxGuide = "def factorial(n):\n    if n <= 1:  # Base case\n        return 1\n    return n * factorial(n - 1)",
+            workingExampleCode = "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(\"5! =\", factorial(5))",
+            lineByLineWalkthrough = listOf(
+                "Lines 2-3: Base case stops recursion when n reaches 1.",
+                "Line 4: Recursive step multiplies n by factorial(n - 1) -> 5 * 4 * 3 * 2 * 1 = 120."
+            ),
+            expectedOutput = "5! = 120",
+            commonMistakes = listOf(
+                "Omitting the base case in a recursive function, which leads to RecursionError (maximum recursion depth exceeded)."
+            ),
+            realWorldExample = "Searching through nested folders and subfolders on a computer.",
+            exercisePrompt = "Call factorial(4) and print the result (which should be 24).",
+            exerciseStarterCode = "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(4))",
+            exerciseSolutionCode = "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(4))",
+            exerciseExpectedOutputContains = listOf("24"),
+            exerciseHint = "Run the code to compute 4 * 3 * 2 * 1 = 24.",
+            quizQuestion = "What is essential in every recursive function to prevent infinite recursion?",
+            quizOptions = listOf("A base case that stops recursive calls", "A global variable", "At least three parameters", "A while loop"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Without a terminating base case, a recursive function calls itself endlessly until the call stack overflows.",
+            quizHint = "Think of the smallest Russian nesting doll where you stop opening."
+        ),
+        CodingLesson(
+            id = "py_15",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 4,
+            moduleTitle = "Module 4: Functions, Scope & Error Handling",
+            lessonNumber = 15,
+            title = "15. Modules, Packages, and Imports",
+            difficulty = "Intermediate",
+            topicTag = "Modules",
+            conceptExplanation = "A module is any Python file containing reusable functions and classes. Python comes with a rich Standard Library (like math, random, datetime, json) that you bring into your script using 'import'.",
+            whyItExists = "You don't need to reinvent square roots or random number generators from scratch—importing modules lets you stand on the shoulders of tested libraries.",
+            simplerExplanation = "Importing a module is like plugging a specialized tool attachment into your power drill whenever you need extra capability.",
+            syntaxGuide = "import math\nprint(math.sqrt(64))  # 8.0\nprint(math.pi)",
+            workingExampleCode = "import math\n\nradius = 5\nroot_val = math.sqrt(81)\nprint(\"Square root of 81:\", root_val)\nprint(\"Ceiling of 4.2:\", math.ceil(4.2))",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Loads Python's built-in math module.",
+                "Line 4: Calls math.sqrt(81) to compute 9.0.",
+                "Line 6: Calls math.ceil(4.2) to round up to the next integer (5)."
+            ),
+            expectedOutput = "Square root of 81: 9.0\nCeiling of 4.2: 5",
+            commonMistakes = listOf(
+                "Naming your own script math.py, which shadows Python's built-in math module!"
+            ),
+            realWorldExample = "Using 'import json' to parse API responses and 'import datetime' to track daily study streaks.",
+            exercisePrompt = "Import math and print math.sqrt(100).",
+            exerciseStarterCode = "import math\nprint(math.sqrt(100))",
+            exerciseSolutionCode = "import math\nprint(math.sqrt(100))",
+            exerciseExpectedOutputContains = listOf("10.0"),
+            exerciseHint = "Use import math and print(math.sqrt(100))",
+            quizQuestion = "Which statement imports only the sqrt function from the math module?",
+            quizOptions = listOf("from math import sqrt", "import sqrt.math", "using math.sqrt", "include <math>"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "'from math import sqrt' brings sqrt directly into your namespace.",
+            quizHint = "Use 'from <module> import <function>'."
+        ),
+        CodingLesson(
+            id = "py_16",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 4,
+            moduleTitle = "Module 4: Functions, Scope & Error Handling",
+            lessonNumber = 16,
+            title = "16. Exception Handling: try, except, finally",
+            difficulty = "Intermediate",
+            topicTag = "Exceptions",
+            conceptExplanation = "Runtime errors (like dividing by zero or converting 'abc' to an int) raise Exceptions. Wrapping risky code in a 'try' block and catching errors in an 'except' block prevents your app from crashing and lets you recover gracefully.",
+            whyItExists = "Users type unexpected input and networks drop. Exception handling keeps software resilient instead of crashing.",
+            simplerExplanation = "A try/except block is a trapeze safety net: you 'try' the risky stunt, and if you slip, the 'except' net catches you safely.",
+            syntaxGuide = "try:\n    result = 100 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero!\")",
+            workingExampleCode = "try:\n    value = int(\"invalid_number\")\n    print(\"Parsed:\", value)\nexcept ValueError:\n    print(\"Handled Error: Please enter valid digits.\")\nfinally:\n    print(\"Check complete.\")",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Attempts to convert 'invalid_number' to int, raising a ValueError.",
+                "Lines 4-5: Catches the ValueError and prints a friendly message instead of crashing.",
+                "Lines 6-7: The 'finally' block always runs at the end."
+            ),
+            expectedOutput = "Handled Error: Please enter valid digits.\nCheck complete.",
+            commonMistakes = listOf(
+                "Using a bare 'except:' that silently hides every bug without logging what went wrong."
+            ),
+            realWorldExample = "Gracefully handling network timeouts when fetching quiz questions from a server.",
+            exercisePrompt = "Run the try/except block that catches ZeroDivisionError and prints \"Safe recovery\".",
+            exerciseStarterCode = "try:\n    x = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Safe recovery\")",
+            exerciseSolutionCode = "try:\n    x = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Safe recovery\")",
+            exerciseExpectedOutputContains = listOf("Safe recovery"),
+            exerciseHint = "Keep print(\"Safe recovery\") inside the except block.",
+            quizQuestion = "When does the 'finally' block execute in a try/except/finally structure?",
+            quizOptions = listOf(
+                "Always, regardless of whether an exception occurred or not",
+                "Only when an exception is raised",
+                "Only when no exception occurs",
+                "Never"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "The 'finally' block is guaranteed to execute whether the try block succeeded or raised an exception—ideal for cleanup.",
+            quizHint = "Think of cleanup code that must always run."
+        ),
+        CodingLesson(
+            id = "py_17",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 4,
+            moduleTitle = "Module 4: Functions, Scope & Error Handling",
+            lessonNumber = 17,
+            title = "17. File Handling & Context Managers",
+            difficulty = "Intermediate",
+            topicTag = "Files",
+            conceptExplanation = "Python reads and writes files using open(filename, mode) with modes 'r' (read), 'w' (write), and 'a' (append). Using the 'with open(...) as f:' context manager automatically closes the file even if an error occurs.",
+            whyItExists = "Variables in RAM disappear when a program exits. Files allow programs to persist logs, reports, and datasets on disk.",
+            simplerExplanation = "Using 'with open()' is like an automatic door that closes and locks itself as soon as you walk out of the room.",
+            syntaxGuide = "# Simulating file lines processing\nlines = [\"Lesson 1: Done\", \"Lesson 2: Done\"]\nfor line in lines:\n    print(line)",
+            workingExampleCode = "# Processing structured log entries like file lines\nlog_buffer = [\"2026-10-19 INFO: Falcon AI started\", \"2026-10-19 INFO: Lesson 17 loaded\"]\nfor entry in log_buffer:\n    print(entry)",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Prepares two structured log lines.",
+                "Lines 3-4: Iterates over each line and outputs it cleanly."
+            ),
+            expectedOutput = "2026-10-19 INFO: Falcon AI started\n2026-10-19 INFO: Lesson 17 loaded",
+            commonMistakes = listOf(
+                "Opening a file in 'w' (write) mode when you meant 'a' (append) — 'w' erases the existing file contents!"
+            ),
+            realWorldExample = "Saving exported study notes or reading configuration files.",
+            exercisePrompt = "Print \"File saved successfully\" to complete the file stream check.",
+            exerciseStarterCode = "print(\"File saved successfully\")",
+            exerciseSolutionCode = "print(\"File saved successfully\")",
+            exerciseExpectedOutputContains = listOf("File saved successfully"),
+            exerciseHint = "Run print(\"File saved successfully\")",
+            quizQuestion = "Why is 'with open(\"data.txt\", \"r\") as f:' preferred over manual f = open(...)?",
+            quizOptions = listOf(
+                "It automatically closes the file when exiting the block, even if exceptions occur",
+                "It makes the file 10x smaller",
+                "It deletes the file after reading",
+                "It encrypts the file automatically"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "The 'with' context manager guarantees the file descriptor is closed properly.",
+            quizHint = "Think about automatic resource cleanup."
+        ),
+
+        // MODULE 5: OBJECT-ORIENTED & PYTHONIC PROGRAMMING (Lessons 18 - 22)
+        CodingLesson(
+            id = "py_18",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 5,
+            moduleTitle = "Module 5: OOP & Pythonic Mastery",
+            lessonNumber = 18,
+            title = "18. Object-Oriented Programming (OOP) Fundamentals",
+            difficulty = "Intermediate",
+            topicTag = "OOP",
+            conceptExplanation = "Object-Oriented Programming bundles related data (attributes) and behaviors (methods) together into blueprints called Classes. An Object is a concrete instance built from a Class using the __init__ constructor.",
+            whyItExists = "As programs grow large, grouping a Student's name, grade, coins, and methods into a Student class keeps code organized and intuitive.",
+            simplerExplanation = "A Class is an architectural blueprint for a house; an Object is an actual house built from that blueprint. You can build many houses from one blueprint.",
+            syntaxGuide = "class Scholar:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade",
+            workingExampleCode = "class Scholar:\n    def __init__(self, name, coins):\n        self.name = name\n        self.coins = coins\n\n    def summary(self):\n        print(\"Scholar:\", self.name, \"Coins:\", self.coins)\n\ns1 = Scholar(\"Aria\", 200)\ns1.summary()",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Defines the Scholar class blueprint.",
+                "Lines 2-4: __init__ initializes each instance's name and coins attributes on 'self'.",
+                "Lines 9-10: Creates instance s1 and calls its summary() method."
+            ),
+            expectedOutput = "Scholar: Aria Coins: 200",
+            commonMistakes = listOf(
+                "Forgetting 'self' as the first parameter of instance methods inside a class."
+            ),
+            realWorldExample = "Modeling UserProfile, HomeworkSession, and CodingLesson objects in an educational app.",
+            exercisePrompt = "Run the Scholar class example to instantiate and print Aria's summary.",
+            exerciseStarterCode = "class Scholar:\n    def __init__(self, name, coins):\n        self.name = name\n        self.coins = coins\n    def summary(self):\n        print(\"Scholar:\", self.name, \"Coins:\", self.coins)\n\ns1 = Scholar(\"Aria\", 200)\ns1.summary()",
+            exerciseSolutionCode = "class Scholar:\n    def __init__(self, name, coins):\n        self.name = name\n        self.coins = coins\n    def summary(self):\n        print(\"Scholar:\", self.name, \"Coins:\", self.coins)\n\ns1 = Scholar(\"Aria\", 200)\ns1.summary()",
+            exerciseExpectedOutputContains = listOf("Scholar: Aria Coins: 200"),
+            exerciseHint = "Click Run Code to execute the class constructor and method.",
+            quizQuestion = "What is the special constructor method called when a new Python object is created?",
+            quizOptions = listOf("__init__", "__start__", "constructor", "new_object"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Python uses __init__(self, ...) to initialize newly created object instances.",
+            quizHint = "Short for initialize, surrounded by double underscores."
+        ),
+        CodingLesson(
+            id = "py_19",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 5,
+            moduleTitle = "Module 5: OOP & Pythonic Mastery",
+            lessonNumber = 19,
+            title = "19. Inheritance and Polymorphism",
+            difficulty = "Advanced",
+            topicTag = "OOP",
+            conceptExplanation = "Inheritance allows a child class to inherit attributes and methods from a parent class: class Child(Parent). Polymorphism lets different subclasses implement the same method name in their own specialized way.",
+            whyItExists = "Avoids duplicating shared logic across related types (e.g., VideoLesson and CodingLesson both inherit from Lesson).",
+            simplerExplanation = "A SportsCar and an ElectricTruck both inherit wheels and steering from a general Vehicle blueprint, but each implements accelerate() differently.",
+            syntaxGuide = "class Animal:\n    def speak(self):\n        print(\"Sound\")\nclass Falcon(Animal):\n    def speak(self):\n        print(\"Screech!\")",
+            workingExampleCode = "class Mentor:\n    def role(self):\n        print(\"General Mentor\")\n\nclass CodingMentor(Mentor):\n    def role(self):\n        print(\"Falcon Coding Instructor\")\n\nm = CodingMentor()\nm.role()",
+            lineByLineWalkthrough = listOf(
+                "Line 5: CodingMentor inherits from Mentor.",
+                "Lines 6-7: Overrides the role() method with specialized behavior."
+            ),
+            expectedOutput = "Falcon Coding Instructor",
+            commonMistakes = listOf(
+                "Forgetting to pass the parent class name in parentheses: class Child(Parent):"
+            ),
+            realWorldExample = "UI component hierarchies where Button, Card, and TextField all inherit layout properties from a base View class.",
+            exercisePrompt = "Run the inheritance example to output \"Falcon Coding Instructor\".",
+            exerciseStarterCode = "class Mentor:\n    def role(self):\n        print(\"General Mentor\")\n\nclass CodingMentor(Mentor):\n    def role(self):\n        print(\"Falcon Coding Instructor\")\n\nm = CodingMentor()\nm.role()",
+            exerciseSolutionCode = "class Mentor:\n    def role(self):\n        print(\"General Mentor\")\n\nclass CodingMentor(Mentor):\n    def role(self):\n        print(\"Falcon Coding Instructor\")\n\nm = CodingMentor()\nm.role()",
+            exerciseExpectedOutputContains = listOf("Falcon Coding Instructor"),
+            exerciseHint = "Run the code to verify polymorphism.",
+            quizQuestion = "How do you declare that class Dog inherits from class Animal in Python?",
+            quizOptions = listOf("class Dog(Animal):", "class Dog extends Animal:", "class Dog : Animal", "class Dog -> Animal:"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Python places the parent superclass inside parentheses right after the child class name.",
+            quizHint = "Parentheses hold the parent class."
+        ),
+        CodingLesson(
+            id = "py_20",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 5,
+            moduleTitle = "Module 5: OOP & Pythonic Mastery",
+            lessonNumber = 20,
+            title = "20. Iterators, Generators & Decorators",
+            difficulty = "Advanced",
+            topicTag = "Generators",
+            conceptExplanation = "Generators use 'yield' to produce a sequence of values lazily one at a time without storing the entire list in memory. Decorators (@decorator) wrap a function to add behavior (like logging or timing) without modifying its source code.",
+            whyItExists = "Processing a 50GB dataset in a list would crash RAM; a generator streams items one by one using almost zero memory.",
+            simplerExplanation = "A list is like baking 1,000 pizzas at once and stacking them on your table. A generator is a chef who bakes one fresh pizza each time a customer asks for the next one.",
+            syntaxGuide = "def count_up_to(n):\n    for i in range(1, n + 1):\n        yield i",
+            workingExampleCode = "squares = [x * x for x in range(1, 5)]\nfor val in squares:\n    print(\"Yielded Square:\", val)",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Generates the first four squares.",
+                "Lines 2-3: Iterates over each generated value and prints it."
+            ),
+            expectedOutput = "Yielded Square: 1\nYielded Square: 4\nYielded Square: 9\nYielded Square: 16",
+            commonMistakes = listOf(
+                "Trying to index a generator like gen[0] — generators must be iterated with next() or a for loop."
+            ),
+            realWorldExample = "Streaming token-by-token responses from an AI model as they arrive.",
+            exercisePrompt = "Print the squares 1, 4, 9, 16 using the loop.",
+            exerciseStarterCode = "for i in range(1, 5):\n    print(i * i)",
+            exerciseSolutionCode = "for i in range(1, 5):\n    print(i * i)",
+            exerciseExpectedOutputContains = listOf("1", "4", "9", "16"),
+            exerciseHint = "Run the loop printing i * i.",
+            quizQuestion = "Which keyword turns a Python function into a lazy generator?",
+            quizOptions = listOf("yield", "return_lazy", "stream", "emit"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "The 'yield' keyword pauses function state and yields the next value on demand.",
+            quizHint = "It means 'produce' or 'give way'."
+        ),
+        CodingLesson(
+            id = "py_21",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 5,
+            moduleTitle = "Module 5: OOP & Pythonic Mastery",
+            lessonNumber = 21,
+            title = "21. Comprehensions & Built-in Functions",
+            difficulty = "Intermediate",
+            topicTag = "Comprehensions",
+            conceptExplanation = "List comprehensions ([expr for item in iterable if cond]) create transformed and filtered lists in a single readable line. Pair them with built-ins like sum(), min(), max(), sorted(), and enumerate().",
+            whyItExists = "Replaces 5 lines of loop-and-append boilerplate with expressive, fast Pythonic code.",
+            simplerExplanation = "A list comprehension is an assembly-line conveyor belt: raw numbers go in one end, get transformed, and land neatly in a new list.",
+            syntaxGuide = "evens = [x for x in range(10) if x % 2 == 0]\nprint(sum(evens))",
+            workingExampleCode = "numbers = [1, 2, 3, 4, 5]\ndoubled = [x * 2 for x in numbers]\nprint(\"Doubled:\", doubled)\nprint(\"Sum:\", sum(doubled))\nprint(\"Max:\", max(doubled))",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Multiplies every x in numbers by 2 into a new list [2, 4, 6, 8, 10].",
+                "Lines 4-5: Computes the sum (30) and maximum (10) using built-in functions."
+            ),
+            expectedOutput = "Doubled: [2, 4, 6, 8, 10]\nSum: 30\nMax: 10",
+            commonMistakes = listOf(
+                "Writing overly nested comprehensions that hurt readability—if logic is complex, use a regular for loop."
+            ),
+            realWorldExample = "Extracting all completed lesson IDs from a list of lesson objects in one line.",
+            exercisePrompt = "Compute and print the sum of [10, 20, 30, 40] using sum().",
+            exerciseStarterCode = "vals = [10, 20, 30, 40]\nprint(sum(vals))",
+            exerciseSolutionCode = "vals = [10, 20, 30, 40]\nprint(sum(vals))",
+            exerciseExpectedOutputContains = listOf("100"),
+            exerciseHint = "Call print(sum(vals))",
+            quizQuestion = "What does [x * 2 for x in [1, 2, 3]] evaluate to?",
+            quizOptions = listOf("[2, 4, 6]", "[1, 2, 3, 1, 2, 3]", "[3, 4, 5]", "12"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Each element (1, 2, 3) is multiplied by 2, producing [2, 4, 6].",
+            quizHint = "Multiply each item by 2."
+        ),
+        CodingLesson(
+            id = "py_22",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 5,
+            moduleTitle = "Module 5: OOP & Pythonic Mastery",
+            lessonNumber = 22,
+            title = "22. Working with Libraries & Ecosystem",
+            difficulty = "Intermediate",
+            topicTag = "Libraries",
+            conceptExplanation = "Python's superpower is its ecosystem of libraries: Standard Library modules (math, random, statistics, collections) and third-party packages installed via pip (NumPy for arrays, Pandas for data tables, Requests for HTTP).",
+            whyItExists = "Libraries let you solve complex scientific, web, and AI tasks in a few lines of tested code.",
+            simplerExplanation = "If Python is a smartphone, libraries are the apps you install to give it new capabilities.",
+            syntaxGuide = "import math\nscores = [80, 90, 100]\navg = sum(scores) / len(scores)\nprint(\"Average:\", avg)",
+            workingExampleCode = "scores = [82, 91, 78, 95, 89]\navg = sum(scores) / len(scores)\nhighest = max(scores)\nlowest = min(scores)\nprint(\"Average:\", avg)\nprint(\"Spread:\", highest - lowest)",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Computes arithmetic mean using sum() and len().",
+                "Lines 3-4: Finds highest and lowest values.",
+                "Line 6: Prints the range spread (95 - 78 = 17)."
+            ),
+            expectedOutput = "Average: 87.0\nSpread: 17",
+            commonMistakes = listOf(
+                "Dividing by len(scores) without checking if the list is empty (which raises ZeroDivisionError)."
+            ),
+            realWorldExample = "Analyzing student quiz performance metrics across a semester.",
+            exercisePrompt = "Calculate and print the average of [70, 80, 90].",
+            exerciseStarterCode = "data = [70, 80, 90]\nprint(sum(data) / len(data))",
+            exerciseSolutionCode = "data = [70, 80, 90]\nprint(sum(data) / len(data))",
+            exerciseExpectedOutputContains = listOf("80.0"),
+            exerciseHint = "Divide sum(data) by len(data).",
+            quizQuestion = "What tool is the standard package manager used to install third-party Python libraries?",
+            quizOptions = listOf("pip", "npm", "cargo", "gradle"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "'pip' (Pip Installs Packages) is Python's official package installer.",
+            quizHint = "A 3-letter command starting with 'p'."
+        ),
+
+        // MODULE 6: SOFTWARE ENGINEERING, ALGORITHMS & REAL-WORLD APPS (Lessons 23 - 26)
+        CodingLesson(
+            id = "py_23",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 6,
+            moduleTitle = "Module 6: Algorithms, APIs & Capstone Projects",
+            lessonNumber = 23,
+            title = "23. Debugging, Testing, and Clean Code",
+            difficulty = "Advanced",
+            topicTag = "Debugging",
+            conceptExplanation = "Debugging is systematically finding and fixing defects. Clean code uses descriptive variable names, small single-purpose functions, and automated assertions (assert) or unit tests to verify correctness.",
+            whyItExists = "Professional engineers spend more time reading and maintaining code than writing it. Automated tests catch regressions before users encounter them.",
+            simplerExplanation = "Testing is like tasting the soup in the kitchen before serving it to guests in the dining room.",
+            syntaxGuide = "def add(a, b):\n    return a + b\n\nassert add(2, 3) == 5\nprint(\"All tests passed!\")",
+            workingExampleCode = "def is_even(n):\n    return n % 2 == 0\n\nprint(\"Test 4:\", is_even(4))\nprint(\"Test 7:\", is_even(7))\nprint(\"Unit Tests: PASSED\")",
+            lineByLineWalkthrough = listOf(
+                "Lines 1-2: Defines a pure function checking if n is divisible by 2.",
+                "Lines 4-6: Verifies both an even case (True) and an odd case (False)."
+            ),
+            expectedOutput = "Test 4: True\nTest 7: False\nUnit Tests: PASSED",
+            commonMistakes = listOf(
+                "Testing only the 'happy path' and forgetting edge cases like 0, negative numbers, or empty lists."
+            ),
+            realWorldExample = "Running automated test suites on every code commit in a CI/CD pipeline.",
+            exercisePrompt = "Run the unit test verification for is_even.",
+            exerciseStarterCode = "def is_even(n):\n    return n % 2 == 0\n\nprint(is_even(10))\nprint(\"Tests Passed\")",
+            exerciseSolutionCode = "def is_even(n):\n    return n % 2 == 0\n\nprint(is_even(10))\nprint(\"Tests Passed\")",
+            exerciseExpectedOutputContains = listOf("True", "Tests Passed"),
+            exerciseHint = "Run the test script.",
+            quizQuestion = "Why is testing edge cases (like empty lists, 0, or negative numbers) important?",
+            quizOptions = listOf(
+                "Most real-world bugs hide at boundary conditions rather than typical inputs",
+                "Edge cases make the code run faster",
+                "Python requires at least 5 edge cases to compile",
+                "It replaces syntax highlighting"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Boundary inputs (0, empty inputs, maximum values) are where off-by-one errors and division-by-zero bugs occur.",
+            quizHint = "Where do bugs usually hide?"
+        ),
+        CodingLesson(
+            id = "py_24",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 6,
+            moduleTitle = "Module 6: Algorithms, APIs & Capstone Projects",
+            lessonNumber = 24,
+            title = "24. Algorithms and Data Structures",
+            difficulty = "Advanced",
+            topicTag = "Algorithms",
+            conceptExplanation = "An algorithm is a step-by-step procedure for solving a computational problem (such as Linear Search, Binary Search, or Two-Pointer traversal). Time complexity (Big-O notation) measures how execution steps scale as input size N grows.",
+            whyItExists = "Searching a sorted phonebook of 1,000,000 names one by one takes up to 1,000,000 steps O(N), whereas Binary Search takes at most 20 steps O(log N)!",
+            simplerExplanation = "If someone thinks of a number between 1 and 100, guessing 50 first cuts the possibilities in half immediately—that is Binary Search.",
+            syntaxGuide = "# Finding maximum value in O(N) time\nbest = nums[0]\nfor x in nums:\n    if x > best:\n        best = x",
+            workingExampleCode = "scores = [45, 88, 92, 67, 99, 73]\nbest = scores[0]\nfor s in scores:\n    if s > best:\n        best = s\nprint(\"Highest Score Found:\", best)",
+            lineByLineWalkthrough = listOf(
+                "Line 2: Initializes 'best' with the first element (45).",
+                "Lines 3-5: Scans each score; whenever s > best, updates best.",
+                "Line 6: Outputs 99 after examining all N elements once."
+            ),
+            expectedOutput = "Highest Score Found: 99",
+            commonMistakes = listOf(
+                "Initializing best = 0 when searching a list of all negative numbers (always initialize with nums[0])."
+            ),
+            realWorldExample = "Ranking search results, finding shortest GPS routes, and matching players in online games.",
+            exercisePrompt = "Find and print the minimum value in [18, 5, 42, 9] using min() or a loop.",
+            exerciseStarterCode = "nums = [18, 5, 42, 9]\nprint(min(nums))",
+            exerciseSolutionCode = "nums = [18, 5, 42, 9]\nprint(min(nums))",
+            exerciseExpectedOutputContains = listOf("5"),
+            exerciseHint = "Use print(min(nums))",
+            quizQuestion = "Why is Binary Search O(log N) much faster than Linear Search O(N) on large sorted lists?",
+            quizOptions = listOf(
+                "It eliminates half of the remaining search space on every comparison",
+                "It checks two elements at a time from left to right",
+                "It sorts the list on every step",
+                "It skips odd numbers"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Halving the search space on each step means 1,000,000 sorted items require at most ~20 comparisons.",
+            quizHint = "Think about cutting the dictionary in half each time."
+        ),
+        CodingLesson(
+            id = "py_25",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 6,
+            moduleTitle = "Module 6: Algorithms, APIs & Capstone Projects",
+            lessonNumber = 25,
+            title = "25. APIs, JSON, and Practical Applications",
+            difficulty = "Advanced",
+            topicTag = "APIs & JSON",
+            conceptExplanation = "Web APIs allow applications to exchange data over the internet using JSON (JavaScript Object Notation). In Python, JSON objects map naturally to dictionaries (dict) and JSON arrays map to lists (list).",
+            whyItExists = "Weather apps, payment gateways, and Falcon AI itself communicate with cloud servers by sending and receiving structured JSON payloads.",
+            simplerExplanation = "JSON is the universal shipping box format of the internet—every programming language knows how to pack and unpack it.",
+            syntaxGuide = "response = {\"status\": 200, \"model\": \"Falcon AI\", \"coins\": 250}\nprint(response[\"model\"])",
+            workingExampleCode = "api_payload = {\"status\": \"ok\", \"scholar\": \"Leo\", \"xp_earned\": 120}\nprint(\"Status:\", api_payload[\"status\"])\nprint(\"Scholar:\", api_payload[\"scholar\"])\nprint(\"XP:\", api_payload[\"xp_earned\"])",
+            lineByLineWalkthrough = listOf(
+                "Line 1: Represents a structured JSON object as a Python dictionary.",
+                "Lines 2-4: Extracts fields by key name."
+            ),
+            expectedOutput = "Status: ok\nScholar: Leo\nXP: 120",
+            commonMistakes = listOf(
+                "Accessing a missing dictionary key with payload[\"missing\"] without checking or using .get(), which raises KeyError."
+            ),
+            realWorldExample = "Parsing user profile data and quiz history synced from a cloud database.",
+            exercisePrompt = "Create a dictionary data = {\"code\": 200} and print data[\"code\"].",
+            exerciseStarterCode = "data = {\"code\": 200}\nprint(data[\"code\"])",
+            exerciseSolutionCode = "data = {\"code\": 200}\nprint(data[\"code\"])",
+            exerciseExpectedOutputContains = listOf("200"),
+            exerciseHint = "Run print(data[\"code\"])",
+            quizQuestion = "Which Python data type corresponds directly to a JSON object {\"key\": \"value\"}?",
+            quizOptions = listOf("dict (Dictionary)", "tuple", "set", "float"),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "JSON objects are key-value maps, which translate directly to Python dictionaries.",
+            quizHint = "Both use curly braces and key: value pairs."
+        ),
+        CodingLesson(
+            id = "py_26",
+            languageId = ProgrammingLanguageId.PYTHON,
+            moduleNumber = 6,
+            moduleTitle = "Module 6: Algorithms, APIs & Capstone Projects",
+            lessonNumber = 26,
+            title = "26. Final Capstone: Real-World Gradebook Analyzer",
+            difficulty = "Advanced",
+            topicTag = "Capstone",
+            conceptExplanation = "In this capstone lesson, you combine variables, lists, loops, conditionals, and functions to build a complete Student Gradebook Analyzer that computes averages, identifies honors scholars, and prints a formatted report.",
+            whyItExists = "Real software engineering is about combining foundational concepts into cohesive, reliable programs.",
+            simplerExplanation = "You have learned how every instrument in the orchestra works; now you conduct them together to play a complete symphony.",
+            syntaxGuide = "def analyze_scores(scores):\n    avg = sum(scores) / len(scores)\n    return avg",
+            workingExampleCode = "scores = [78, 92, 85, 96, 89]\ntotal = sum(scores)\navg = total / len(scores)\nhonors = [s for s in scores if s >= 90]\nprint(\"Class Average:\", avg)\nprint(\"Honors Count:\", len(honors))\nprint(\"Capstone Complete!\")",
+            lineByLineWalkthrough = listOf(
+                "Lines 1-3: Computes total and class average across 5 scores (88.0).",
+                "Line 4: Filters scores >= 90 using a list comprehension ([92, 96]).",
+                "Lines 5-7: Prints the final analytical report."
+            ),
+            expectedOutput = "Class Average: 88.0\nHonors Count: 2\nCapstone Complete!",
+            commonMistakes = listOf(
+                "Forgetting to verify output formatting against project requirements."
+            ),
+            realWorldExample = "Automated academic analytics dashboards used by schools and learning platforms.",
+            exercisePrompt = "Run the complete Capstone Gradebook Analyzer and verify the report output.",
+            exerciseStarterCode = "scores = [78, 92, 85, 96, 89]\navg = sum(scores) / len(scores)\nhonors = [s for s in scores if s >= 90]\nprint(\"Class Average:\", avg)\nprint(\"Honors Count:\", len(honors))\nprint(\"Capstone Complete!\")",
+            exerciseSolutionCode = "scores = [78, 92, 85, 96, 89]\navg = sum(scores) / len(scores)\nhonors = [s for s in scores if s >= 90]\nprint(\"Class Average:\", avg)\nprint(\"Honors Count:\", len(honors))\nprint(\"Capstone Complete!\")",
+            exerciseExpectedOutputContains = listOf("Class Average: 88.0", "Honors Count: 2", "Capstone Complete!"),
+            exerciseHint = "Click Run Code to execute the full analysis.",
+            quizQuestion = "What is the best way to structure a large real-world Python application?",
+            quizOptions = listOf(
+                "Break logic into small, well-named functions, classes, and modules with clear tests",
+                "Put all 5,000 lines into a single while loop without functions",
+                "Use single-letter variable names everywhere",
+                "Avoid error handling so crashes happen silently"
+            ),
+            quizCorrectIndex = 0,
+            quizWrongExplanation = "Modular functions, clean naming, and automated tests make software maintainable and reliable.",
+            quizHint = "Think about modularity and readability."
+        )
+    )
+}

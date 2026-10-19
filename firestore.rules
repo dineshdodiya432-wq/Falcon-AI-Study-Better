@@ -1,0 +1,199 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Pillar 1: Global Default-Deny Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUserProfile(data) {
+      return data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 &&
+             data.userId == request.auth.uid &&
+             data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+             data.selectedGrade is int && data.selectedGrade >= 1 && data.selectedGrade <= 12 &&
+             data.selectedLanguage is string && data.selectedLanguage.size() >= 1 && data.selectedLanguage.size() <= 50 &&
+             data.curriculumTags is list && data.curriculumTags.size() <= 20 &&
+             (data.curriculumTags.size() == 0 || (data.curriculumTags[0] is string && data.curriculumTags[0].size() <= 60)) &&
+             data.coins is int && data.coins >= 0 && data.coins <= 1000000 &&
+             data.xp is int && data.xp >= 0 && data.xp <= 10000000 &&
+             data.studyStreak is int && data.studyStreak >= 0 && data.studyStreak <= 10000 &&
+             data.quizStreak is int && data.quizStreak >= 0 && data.quizStreak <= 10000 &&
+             data.brokenStudyStreakToRecover is int && data.brokenStudyStreakToRecover >= 0 && data.brokenStudyStreakToRecover <= 10000 &&
+             data.brokenQuizStreakToRecover is int && data.brokenQuizStreakToRecover >= 0 && data.brokenQuizStreakToRecover <= 10000 &&
+             data.streakShields is int && data.streakShields >= 0 && data.streakShields <= 100 &&
+             data.unlockedBadges is list && data.unlockedBadges.size() <= 30 &&
+             (data.unlockedBadges.size() == 0 || (data.unlockedBadges[0] is string && data.unlockedBadges[0].size() <= 60)) &&
+             data.reminderEnabled is bool &&
+             (!('darkModeEnabled' in data) || data.darkModeEnabled is bool) &&
+             data.reminderHour is int && data.reminderHour >= 0 && data.reminderHour <= 23 &&
+             data.reminderMinute is int && data.reminderMinute >= 0 && data.reminderMinute <= 59 &&
+             data.reminderDays is list && data.reminderDays.size() <= 7 &&
+             (data.reminderDays.size() == 0 || (data.reminderDays[0] is string && data.reminderDays[0].size() <= 16)) &&
+             data.lastStudyDate is string && data.lastStudyDate.size() <= 30 &&
+             data.lastQuizDate is string && data.lastQuizDate.size() <= 30 &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    function isValidHomeworkSession(data) {
+      return data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 &&
+             data.userId == request.auth.uid &&
+             data.questionTitle is string && data.questionTitle.size() >= 1 && data.questionTitle.size() <= 500 &&
+             data.subjectTag is string && data.subjectTag.size() >= 1 && data.subjectTag.size() <= 100 &&
+             data.gradeLevel is int && data.gradeLevel >= 1 && data.gradeLevel <= 12 &&
+             data.language is string && data.language.size() >= 1 && data.language.size() <= 50 &&
+             data.steps is list && data.steps.size() >= 1 && data.steps.size() <= 15 &&
+             data.steps[0] is string && data.steps[0].size() <= 2000 &&
+             data.finalAnswer is string && data.finalAnswer.size() >= 1 && data.finalAnswer.size() <= 2000 &&
+             data.keyConcept is string && data.keyConcept.size() >= 1 && data.keyConcept.size() <= 1000 &&
+             data.practiceQuestion is string && data.practiceQuestion.size() <= 1000 &&
+             data.practiceOptions is list && data.practiceOptions.size() <= 6 &&
+             (data.practiceOptions.size() == 0 || (data.practiceOptions[0] is string && data.practiceOptions[0].size() <= 500)) &&
+             data.practiceCorrectIndex is int && data.practiceCorrectIndex >= 0 && data.practiceCorrectIndex <= 5 &&
+             data.practiceCompleted is bool &&
+             data.coinsEarned is int && data.coinsEarned >= 0 && data.coinsEarned <= 1000 &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    function isValidQuizAttempt(data) {
+      return data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 &&
+             data.userId == request.auth.uid &&
+             data.subjectTag is string && data.subjectTag.size() >= 1 && data.subjectTag.size() <= 100 &&
+             data.gradeLevel is int && data.gradeLevel >= 1 && data.gradeLevel <= 12 &&
+             data.language is string && data.language.size() >= 1 && data.language.size() <= 50 &&
+             data.score is int && data.score >= 0 && data.score <= 20 &&
+             data.totalQuestions is int && data.totalQuestions >= 1 && data.totalQuestions <= 20 &&
+             data.coinsEarned is int && data.coinsEarned >= 0 && data.coinsEarned <= 1000 &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    match /users/{userId} {
+      allow get: if isSignedIn() && isValidId(userId) && request.auth.uid == userId;
+      allow list: if isSignedIn() && request.auth.uid == userId && existing().userId == request.auth.uid;
+
+      allow create: if isSignedIn() &&
+                       isValidId(userId) &&
+                       request.auth.uid == userId &&
+                       incoming().keys().hasAll([
+                         'userId', 'displayName', 'selectedGrade', 'selectedLanguage',
+                         'curriculumTags', 'coins', 'xp', 'studyStreak', 'quizStreak',
+                         'brokenStudyStreakToRecover', 'brokenQuizStreakToRecover',
+                         'streakShields', 'unlockedBadges', 'reminderEnabled',
+                         'reminderHour', 'reminderMinute', 'reminderDays',
+                         'lastStudyDate', 'lastQuizDate', 'createdAt', 'updatedAt'
+                       ]) &&
+                       incoming().keys().hasOnly([
+                         'userId', 'displayName', 'selectedGrade', 'selectedLanguage',
+                         'curriculumTags', 'coins', 'xp', 'studyStreak', 'quizStreak',
+                         'brokenStudyStreakToRecover', 'brokenQuizStreakToRecover',
+                         'streakShields', 'unlockedBadges', 'reminderEnabled', 'darkModeEnabled',
+                         'reminderHour', 'reminderMinute', 'reminderDays',
+                         'lastStudyDate', 'lastQuizDate', 'createdAt', 'updatedAt'
+                       ]) &&
+                       isValidUserProfile(incoming());
+
+      allow update: if isSignedIn() &&
+                       isValidId(userId) &&
+                       request.auth.uid == userId &&
+                       isValidUserProfile(incoming()) &&
+                       incoming().userId == existing().userId &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly([
+                         'displayName', 'selectedGrade', 'selectedLanguage',
+                         'curriculumTags', 'coins', 'xp', 'studyStreak', 'quizStreak',
+                         'brokenStudyStreakToRecover', 'brokenQuizStreakToRecover',
+                         'streakShields', 'unlockedBadges', 'reminderEnabled', 'darkModeEnabled',
+                         'reminderHour', 'reminderMinute', 'reminderDays',
+                         'lastStudyDate', 'lastQuizDate', 'updatedAt'
+                       ]);
+
+      allow delete: if isSignedIn() && isValidId(userId) && request.auth.uid == userId;
+
+      match /homework/{homeworkId} {
+        allow get: if isSignedIn() && isValidId(userId) && isValidId(homeworkId) && request.auth.uid == userId && existing().userId == request.auth.uid;
+        allow list: if isSignedIn() && request.auth.uid == userId && existing().userId == request.auth.uid;
+
+        allow create: if isSignedIn() &&
+                         isValidId(userId) &&
+                         isValidId(homeworkId) &&
+                         request.auth.uid == userId &&
+                         incoming().keys().hasAll([
+                           'userId', 'questionTitle', 'subjectTag', 'gradeLevel',
+                           'language', 'steps', 'finalAnswer', 'keyConcept',
+                           'practiceQuestion', 'practiceOptions', 'practiceCorrectIndex',
+                           'practiceCompleted', 'coinsEarned', 'createdAt', 'updatedAt'
+                         ]) &&
+                         incoming().keys().hasOnly([
+                           'userId', 'questionTitle', 'subjectTag', 'gradeLevel',
+                           'language', 'steps', 'finalAnswer', 'keyConcept',
+                           'practiceQuestion', 'practiceOptions', 'practiceCorrectIndex',
+                           'practiceCompleted', 'coinsEarned', 'createdAt', 'updatedAt'
+                         ]) &&
+                         isValidHomeworkSession(incoming());
+
+        allow update: if isSignedIn() &&
+                         isValidId(userId) &&
+                         isValidId(homeworkId) &&
+                         request.auth.uid == userId &&
+                         isValidHomeworkSession(incoming()) &&
+                         incoming().userId == existing().userId &&
+                         incoming().createdAt == existing().createdAt &&
+                         incoming().diff(existing()).affectedKeys().hasOnly([
+                           'practiceCompleted', 'coinsEarned', 'updatedAt'
+                         ]);
+
+        allow delete: if isSignedIn() && isValidId(userId) && isValidId(homeworkId) && request.auth.uid == userId && existing().userId == request.auth.uid;
+      }
+
+      match /quizzes/{quizId} {
+        allow get: if isSignedIn() && isValidId(userId) && isValidId(quizId) && request.auth.uid == userId && existing().userId == request.auth.uid;
+        allow list: if isSignedIn() && request.auth.uid == userId && existing().userId == request.auth.uid;
+
+        allow create: if isSignedIn() &&
+                         isValidId(userId) &&
+                         isValidId(quizId) &&
+                         request.auth.uid == userId &&
+                         incoming().keys().hasAll([
+                           'userId', 'subjectTag', 'gradeLevel', 'language',
+                           'score', 'totalQuestions', 'coinsEarned', 'createdAt', 'updatedAt'
+                         ]) &&
+                         incoming().keys().hasOnly([
+                           'userId', 'subjectTag', 'gradeLevel', 'language',
+                           'score', 'totalQuestions', 'coinsEarned', 'createdAt', 'updatedAt'
+                         ]) &&
+                         isValidQuizAttempt(incoming());
+
+        allow update: if isSignedIn() &&
+                         isValidId(userId) &&
+                         isValidId(quizId) &&
+                         request.auth.uid == userId &&
+                         isValidQuizAttempt(incoming()) &&
+                         incoming().userId == existing().userId &&
+                         incoming().createdAt == existing().createdAt &&
+                         incoming().diff(existing()).affectedKeys().hasOnly([
+                           'score', 'coinsEarned', 'updatedAt'
+                         ]);
+
+        allow delete: if isSignedIn() && isValidId(userId) && isValidId(quizId) && request.auth.uid == userId && existing().userId == request.auth.uid;
+      }
+    }
+  }
+}

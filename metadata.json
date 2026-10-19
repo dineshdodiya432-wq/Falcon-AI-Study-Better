@@ -1,0 +1,6 @@
+{
+  "name": "Falcon AI",
+  "description": "Falcon AI is a multilingual AI learning companion for students in Grades 1-12 with step-by-step homework explanations, curriculum-aware daily quizzes, streaks, coin-based streak recovery, and dark mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

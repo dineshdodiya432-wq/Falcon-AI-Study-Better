@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Stores student profile, grade 1-12 selection, language preference, curriculum tags, streaks, coins, shields, achievements, and study reminder settings.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated user UID." },
+        "displayName": { "type": "string", "description": "Student display name." },
+        "selectedGrade": { "type": "integer", "description": "Grade level from 1 to 12." },
+        "selectedLanguage": { "type": "string", "description": "Selected tutoring and quiz language." },
+        "curriculumTags": { "type": "array", "description": "Selected curriculum focus tags." },
+        "coins": { "type": "integer", "description": "Earned Star Coins balance." },
+        "xp": { "type": "integer", "description": "Total experience points earned." },
+        "studyStreak": { "type": "integer", "description": "Current consecutive daily study streak." },
+        "quizStreak": { "type": "integer", "description": "Current consecutive daily quiz streak." },
+        "brokenStudyStreakToRecover": { "type": "integer", "description": "Previous study streak recoverable with coins." },
+        "brokenQuizStreakToRecover": { "type": "integer", "description": "Previous quiz streak recoverable with coins." },
+        "streakShields": { "type": "integer", "description": "Active streak freeze shields owned." },
+        "unlockedBadges": { "type": "array", "description": "Unlocked cosmic achievement badge IDs." },
+        "reminderEnabled": { "type": "boolean", "description": "Whether daily study reminders are enabled." },
+        "darkModeEnabled": { "type": "boolean", "description": "Whether dark mode is enabled in settings." },
+        "reminderHour": { "type": "integer", "description": "Study reminder hour (0-23)." },
+        "reminderMinute": { "type": "integer", "description": "Study reminder minute (0-59)." },
+        "reminderDays": { "type": "array", "description": "Days of the week for study reminders." },
+        "lastStudyDate": { "type": "string", "description": "ISO date of last study activity." },
+        "lastQuizDate": { "type": "string", "description": "ISO date of last quiz completion." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp of last update." }
+      },
+      "required": [
+        "userId",
+        "displayName",
+        "selectedGrade",
+        "selectedLanguage",
+        "curriculumTags",
+        "coins",
+        "xp",
+        "studyStreak",
+        "quizStreak",
+        "brokenStudyStreakToRecover",
+        "brokenQuizStreakToRecover",
+        "streakShields",
+        "unlockedBadges",
+        "reminderEnabled",
+        "reminderHour",
+        "reminderMinute",
+        "reminderDays",
+        "lastStudyDate",
+        "lastQuizDate",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "HomeworkSession": {
+      "title": "HomeworkSession",
+      "description": "Stores an uploaded or asked homework problem along with its multilingual step-by-step AI explanation and practice check.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated user UID." },
+        "questionTitle": { "type": "string", "description": "Summary or question text of the homework problem." },
+        "subjectTag": { "type": "string", "description": "Curriculum tag (e.g., Algebra, Life Science)." },
+        "gradeLevel": { "type": "integer", "description": "Grade level (1-12) used for explanation." },
+        "language": { "type": "string", "description": "Language of the explanation." },
+        "steps": { "type": "array", "description": "Step-by-step explanation items." },
+        "finalAnswer": { "type": "string", "description": "Clear final answer or conclusion." },
+        "keyConcept": { "type": "string", "description": "Core concept and bilingual vocabulary note." },
+        "practiceQuestion": { "type": "string", "description": "Follow-up mini comprehension question." },
+        "practiceOptions": { "type": "array", "description": "Multiple-choice options for the comprehension check." },
+        "practiceCorrectIndex": { "type": "integer", "description": "Index of the correct practice option." },
+        "practiceCompleted": { "type": "boolean", "description": "Whether the student completed the bonus practice check." },
+        "coinsEarned": { "type": "integer", "description": "Star Coins awarded for this session." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp of last update." }
+      },
+      "required": [
+        "userId",
+        "questionTitle",
+        "subjectTag",
+        "gradeLevel",
+        "language",
+        "steps",
+        "finalAnswer",
+        "keyConcept",
+        "practiceQuestion",
+        "practiceOptions",
+        "practiceCorrectIndex",
+        "practiceCompleted",
+        "coinsEarned",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "QuizAttempt": {
+      "title": "QuizAttempt",
+      "description": "Stores a completed daily quiz session and earned rewards.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated user UID." },
+        "subjectTag": { "type": "string", "description": "Curriculum tag of the quiz." },
+        "gradeLevel": { "type": "integer", "description": "Grade level (1-12) of the quiz." },
+        "language": { "type": "string", "description": "Language in which the quiz was taken." },
+        "score": { "type": "integer", "description": "Number of correct answers." },
+        "totalQuestions": { "type": "integer", "description": "Total number of questions in the quiz." },
+        "coinsEarned": { "type": "integer", "description": "Star Coins earned from the quiz." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp of last update." }
+      },
+      "required": [
+        "userId",
+        "subjectTag",
+        "gradeLevel",
+        "language",
+        "score",
+        "totalQuestions",
+        "coinsEarned",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile document keyed by authenticated UID."
+    },
+    "/users/{userId}/homework/{homeworkId}": {
+      "schema": { "$ref": "#/entities/HomeworkSession" },
+      "description": "User homework explanation sessions subcollection."
+    },
+    "/users/{userId}/quizzes/{quizId}": {
+      "schema": { "$ref": "#/entities/QuizAttempt" },
+      "description": "User completed daily quiz attempts subcollection."
+    }
+  }
+}
