@@ -1,4 +1,3 @@
-
 name: Build Falcon AI APK
 
 on:
@@ -36,3 +35,4 @@ jobs:
         with:
           name: Falcon-AI-APK
           path: app/build/outputs/apk/debug/*.apk
+
