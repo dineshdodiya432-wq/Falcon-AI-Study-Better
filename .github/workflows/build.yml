@@ -16,7 +16,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: 'temurin'
           java-version: '17'
 
       - name: Install Gradle
@@ -27,12 +27,22 @@ jobs:
       - name: Generate Gradle wrapper
         run: gradle wrapper
 
-      - name: Build APK
-        run: gradle assembleDebug
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
+
+      - name: Force Generate Debug Keystore
+        run: |
+          keytool -genkeypair -v -keystore ${{ github.workspace }}/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "C=US, O=Android, CN=Android Debug"
+          ls -la ${{ github.workspace }}
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --stacktrace
+        env:
+          GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Falcon-AI-APK
           path: app/build/outputs/apk/debug/*.apk
-
